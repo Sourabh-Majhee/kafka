@@ -1,3 +1,8 @@
+org.apache.kafka.coordinator.share.PersisterStateBatchCombinerStressTest:
+- alternatingStateBatchesAreNotMerged
+- manyContiguousSameStateBatchesCoalesceIntoOne
+- manyShuffledSameStateBatchesCoalesceIntoOne
+- resultIsSortedDisjointCoverage
 org.apache.kafka.coordinator.share.PersisterStateBatchCombinerTest:
 - testStateBatchCombineComplexCases
 - testStateBatchCombineCornerCases
@@ -42,6 +47,7 @@ org.apache.kafka.coordinator.share.ShareCoordinatorServiceTest:
 - testOnMetadataUpdateSchedulesOperationsWhenTopicsDeleted
 - testOnMetadataUpdateSwallowsErrorsWhenTopicsDeleted
 - testPartitionFor
+- testPeriodicJobsDoNotDuplicateAfterDisableEnableWithInFlightJobs
 - testPeriodicJobsDoNotRunWhenShareGroupsDisabled
 - testReadFutureReturnsError
 - testReadStateSuccess
@@ -74,7 +80,10 @@ org.apache.kafka.coordinator.share.ShareCoordinatorShardTest:
 - testDeleteTopicIdNonExistentInMetadataImage
 - testInitializeNullMetadataImage
 - testInitializePartitionIdNonExistentInMetadataImage
+- testInitializeStateIdempotent
 - testInitializeStateInvalidRequestData
+- testInitializeStateInvalidStateEpochRequestData
+- testInitializeStateNotIdempotentWhenStartOffsetChanges
 - testInitializeStateSuccess
 - testInitializeTopicIdNonExistentInMetadataImage
 - testLastRedundantOffset
@@ -87,6 +96,7 @@ org.apache.kafka.coordinator.share.ShareCoordinatorShardTest:
 - testReadStateInvalidRequestData
 - testReadStateLeaderEpochUpdateNoUpdate
 - testReadStateLeaderEpochUpdateSuccess
+- testReadStateNegativeLeaderEpochDisallowed
 - testReadStateSuccess
 - testReadStateSummaryInvalidRequestData
 - testReadStateSummarySuccess
@@ -99,9 +109,15 @@ org.apache.kafka.coordinator.share.ShareCoordinatorShardTest:
 - testSubsequentWriteStateSnapshotEpochUpdatesSuccessfully
 - testWriteFailsOnUninitializedPartition
 - testWriteNullMetadataImage
+- testWriteStateDiscardsDeliveryCompleteCountRegressionIncomingStartOffsetEqual
+- testWriteStateDiscardsDeliveryCompleteCountRegressionIncomingStartOffsetGreater
+- testWriteStateDiscardsDeliveryCompleteCountRegressionIncomingStartOffsetSmaller
+- testWriteStateDiscardsStartOffsetRegression
 - testWriteStateFencedLeaderEpochError
 - testWriteStateFencedStateEpochError
-- testWriteStateInvalidRequestData
+- testWriteStateInvalidLeaderEpochRequestData
+- testWriteStateInvalidPartitionRequestData
+- testWriteStateInvalidStateEpochRequestData
 - testWriteStateSuccess
 org.apache.kafka.coordinator.share.metrics.ShareCoordinatorMetricsTest:
 - testCoordinatorGlobalSensors

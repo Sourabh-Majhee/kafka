@@ -4,6 +4,7 @@ org.apache.kafka.coordinator.common.runtime.CoordinatorExecutorImplTest:
 - testCancelAllTasks
 - testTaskCancelledAfterBeingExecutedButBeforeWriteOperationIsExecuted
 - testTaskCancelledBeforeBeingExecuted
+- testTaskCancelledWhileBeingExecuted
 - testTaskFailedLifecycle
 - testTaskSchedulingWriteOperationFailed
 - testTaskSuccessfulLifecycle
@@ -61,6 +62,7 @@ org.apache.kafka.coordinator.common.runtime.CoordinatorRuntimeTest:
 - testEmptyBatch
 - testHighWatermarkUpdate
 - testHighWatermarkUpdateWithDeferredEventExceptions
+- testLargeCompressibleRecordDoesNotFlushEmptyBatch
 - testLargeCompressibleRecordTriggersFlushAndSucceeds
 - testLargeUncompressibleRecordTriggersFlushAndFails
 - testLingerTimeComparisonInMaybeFlushCurrentBatch
@@ -168,6 +170,8 @@ org.apache.kafka.coordinator.common.runtime.KRaftCoordinatorMetadataDeltaTest:
 org.apache.kafka.coordinator.common.runtime.KRaftCoordinatorMetadataImageTest:
 - testEqualsAndHashcode
 - testKRaftCoordinatorMetadataImage
+- testTopicIdAndTopicName
+- testTopicIdAndTopicNameOfEmptyImage
 org.apache.kafka.coordinator.common.runtime.KafkaMetricHistogramTest:
 - testStats
 org.apache.kafka.coordinator.common.runtime.MultiThreadedEventProcessorTest:
